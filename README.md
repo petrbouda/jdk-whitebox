@@ -1,5 +1,22 @@
 # JDK WhiteBox
 
+## Preparation
+
+```
+git clone https://github.com/openjdk/jdk.git && jdk 
+sudo chmod -R 777 .
+./configure --with-debug-level=fastdebug --with-version-pre=testing --with-version-opt=pbouda.builds.openjdk-21 --with-vendor-name='Petr Bouda' --with-native-debug-symbols=internal
+
+# Build compilation DB - to load a project with - jdk/build/macosx-aarch64-server-fastdebug/compile-commands.json
+make compile-commands-hotspot
+
+# Builds OpenJdk - jdk/build/macosx-aarch64-server-fastdebug
+make 
+
+# Builds WhiteBox (wb.jar) - jdk/build/macosx-aarch64-server-fastdebug/support/test/lib
+make build-test-lib
+```
+
 WhiteBox is compiled with JDK 21, therefore you need to have JDK 21 for execution the commands;
 
 ```
